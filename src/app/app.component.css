@@ -1,0 +1,112 @@
+/*-------------------------------------------
+共通
+-------------------------------------------*/
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+header {
+  background-color: black;
+}
+.top {
+  display: flex;
+}
+.top-right {
+  color: white;
+  margin: 1em 0;
+}
+.top-left {
+  margin-left: auto;
+  margin-top: 2em;
+  color: white;
+}
+.left-nav {
+  display: flex;
+}
+.left-nav li {
+  padding-left: 1em;
+}
+
+/*-------------------------------------------
+イベントボタン
+-------------------------------------------*/
+.event-btn-area {
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+.event-btn {
+  width: 48%;
+  padding: 1em 0;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+
+/*-------------------------------------------
+カレンダー
+-------------------------------------------*/
+.calender {
+  padding: 1em 4em 2em 4em;
+}
+table {
+  width: 100%;
+}
+.next {
+  text-align: right;
+}
+.calender-cel {
+  width: 100px;
+  height: 100px;
+  border: 1px solid silver;
+  border-radius: 10px;
+}
+.month {
+  font-size: 2.5em;
+}
+.days {
+  padding-top: 0.5em;
+  text-align: center;
+}
+.text {
+  padding: 0.5em 0 0 0.5em;
+  height: 100px;
+}
+.today {
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+}
+
+
+/*-------------------------------------------
+スケジュールリスト
+-------------------------------------------*/
+.schedule-list {
+  display: flex;
+}
+
+
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+.footer {
+  background-color: black;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}

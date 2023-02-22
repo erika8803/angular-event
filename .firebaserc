@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-event": {
+      "hosting": {
+        "angular-event": [
+          "angular-event"
+        ]
+      }
+    }
+  }
+}
