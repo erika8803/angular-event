@@ -102,18 +102,44 @@
   <section>
     <div *ngFor="let schedule of schedules$ | async ">
       <ul class="schedule-list">
-        <li>{{ schedule.eventDate }}</li>
-        <li>{{ schedule.user.name }}</li>
-        <li>{{ schedule.eventTitle }}</li>
-        <li><pre>{{ schedule.eventComment }}</pre></li>
-        <li><input type="button" value="修正"></li>
-        <li><input type="button" value="x"></li>
+        <ng-container *ngIf="!schedule.isEdit">
+          <li>{{ schedule.eventDate }}</li>
+          <li>{{ schedule.user.name }}</li>
+          <li>{{ schedule.eventTitle }}</li>
+          <li><pre>{{ schedule.eventComment }}</pre></li>
+        </ng-container>
+        <ng-container *ngIf="schedule.user.uid === currentUser.uid">
+          <li>
+            <button
+              (click)="schedule.isEdit = !schedule.isEdit"
+              class="btn btn-info btn-sm"
+              title="修正"
+            >
+              修正
+            </button>
+          </li>
+          <li><button (click)="deleteSchedule(schedule)" class="btn btn-warning btn-sm" title="削除">x</button></li>
+        </ng-container>
+        <!-- 修正ボタンが押下後、表示 -->
+        <ng-container *ngIf="schedule.isEdit">
+          <input [(ngModel)]="schedule.eventDate" type="date" name="edit-eventDate">
+          <input [(ngModel)]="schedule.eventTitle" type="text" name="edit-eventTitle" value="{{ schedule.eventTitle }}">
+          <textarea
+            [(ngModel)]="schedule.eventComment"
+            name="edit-eventComment"
+            value="{{ schedule.eventComment }}"
+          ></textarea>
+          <button (click)="updateSchedule(schedule)" class="btn btn-info">保存</button>
+          <button (click)="schedule.isEdit = false" class="btn btn-warning">キャンセル</button>
+        </ng-container>
+        <!-- /ここまで修正ボタンが押下後、表示 -->
+
       </ul>
     </div>
   </section>
 
   <!-- kokokara -->
-  <section>
+  <!-- <section>
     <div *ngIf="item$ | async as item">
       <ul class="schedule-list">
         <li>{{ item.name }}</li>
@@ -122,7 +148,7 @@
         <li><input type="button" value="x"></li>
       </ul>
     </div>
-  </section>
+  </section> -->
 <!-- kokomade -->
 
 
